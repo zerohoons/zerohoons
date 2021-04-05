@@ -5,10 +5,181 @@ import java.util.Scanner;
 
 public class Ex01 {
 	public static void main(String[] args) {
-		String msg = "";
+		// String 클래스
+		String str1 = "abc";
+
+		char[] data = { 'a', 'b', 'c' };
+		String str2 = new String(data); //배열을 그대로 String 값으로 만들 수 있음
+
+		byte[] data2 = { 97, 98, 99 };
+		String str3 = new String(data2);
+
+		String str4 = new String("abc");
+		System.out.println(str1);
+		System.out.println(str2);
+		System.out.println(str3);
+		System.out.println(str4);
+
+		System.out.println("=== 주요 메소드 ===");
+		String msg = "한국 ICT 인재 개발원 1강의장";
+		// 1. charAt(int index) : char
+		// 위치값을 받아서 그 위치에 존재하는 문자를 반환한다.
+		// 이때 위치값(index는 0부터이다.)
+		char c1 = msg.charAt(7); // 인
+		System.out.println(c1);
+
+		// 문제) 다음 문자들 중에 소문자를 대문자로 변경하시오
+		// 힌트) a는 97, A는 65 이다. (차이는 32)
+		msg = "대한 I Love You 123";
+		// 문자열의 길이를 구하자 : length() : int
+		System.out.println(msg.length());
+			for (int i = 0; i < msg.length(); i++) {
+				char c2 = msg.charAt(i);
+				if (c2 >= 'a' && c2 <= 'z') {
+				c2 = (char) (c2 - 32);
+				}
+				System.out.print(c2);
+			}
+		System.out.println();
+
+				// 2. concat(String str) : String
+				// 지정한 문자열을 이 문자열 끝에 연결합니다.
+				String msg1 = "대한민국";
+				String msg2 = "KOREA";
+				String msg3 = msg1.concat(msg2);
+				System.out.println(msg3);
+				System.out.println(msg1 + msg2);
+
+				// 3. contains(String s) : boolean
+				// 받은 문자열이 해당문자열에 존재하면 true, 존재하지 않으면 false
+				msg = "대한 I Love You 123";
+				// boolean b1 = msg.contains("You");
+				boolean b1 = msg.contains("YOU");
+				if (b1) {
+					System.out.println("포함되어 있다.");
+				} else {
+					System.out.println("포함되어 있지 않다.");
+				}
+
+				// 4. equals(Object anObject) : boolean
+				// 받은 문자열과 현재 문자열과 같으면 true, 다르면 false (대소문자 구별)
+				// 5. equalsIgnoreCase(String anotherString) ; boolean
+				// 받은 문자열과 현재 문자열과 같으면 true, 다르면 false (대소문자 구별없음)
+				// ** 주의) 문자열이나 객체을 비교할때 '==' 는 사용하면 내용이 같냐? 아니라 주소가 같냐?
+				// 문자열에는 '==' 사용하면 안됨, equals 또는 equalsIgnoreCase를 사용해야 된다.
+
+				String s1 = "Korea";
+				String s2 = "KOREA";
+				String s3 = new String("Korea");
+				String s4 = new String("Korea");
+
+				System.out.println(s1 == s2); // false
+				System.out.println(s2 == s3); // false
+				System.out.println(s3 == s4); // false
+				System.out.println();
+				System.out.println(s1.equalsIgnoreCase(s2));
+				System.out.println(s1.equalsIgnoreCase(s3));
+				System.out.println(s1.equalsIgnoreCase(s4));
+				System.out.println();
+
+				s1 = "seoul";
+				s2 = "seoul";
+				System.out.println(s1 == s2); // 주소가 같냐?
+				System.out.println(s1.equalsIgnoreCase(s2)); // 내용이 같냐?
+
+				// 6. format(String format, Object... args) : static String
+				// 형식을 지정하고 형식에 맞게 생성
+				// %s 는 문자열, %d는 정수, %f 실수(반올림 된다.)
+				String msg4 = "한국 ICT 인재 개발원";
+				int s5 = 14;
+				double s6 = 89.167;
+				String msg5 = msg4.format("%s의 시작년도는 %d년 이고 평균점수는 %.2f이다.", msg4, s5, s6);
+				System.out.println(msg5);
+
+				// 7. getBytes() : byte[]
+				// 해당 문자열을 byte[]로 변경시킨다.
+				// 보통 입/출력 스트림할때 사용한다. (영문자 대소문자와 숫자만 가능)
+				String msg6 = "java";
+				byte[] b = msg6.getBytes();
+				for (int i = 0; i < b.length; i++) {
+					System.out.println((char) (b[i]) + ":" + b[i]);
+				}
+
+				// 반대로 해당 byte 배열을 문자열로 만들수도 있다.(String 생성자이용)
+				String msg7 = new String(b);
+				System.out.println(msg7);
+
+				// 8. toCharArray() : char[]
+				// 해당 문자열을 char[]로 변경시킨다.
+				// 보통 입/출력 스트림할때 사용한다. (전 세계 모든 문자 가능)
+				String msg8 = "자바8 java8 大韓民國 123 ";
+				char[] c = msg8.toCharArray();
+				for (int i = 0; i < c.length; i++) {
+					System.out.println(c[i]);
+				}
+
+				// 반대로 해당 char 배열을 문자열로 만들수도 있다.(String 생성자이용)
+				String msg9 = new String(c);
+				System.out.println(msg9);
+
+				// 9. indexOf(int ch) : int
+				// 문자를 받아서 해당 문자의 위치값을 표시
+				// 시작위치는 처음부터, 찾는 문자가 없으면 -1이다.
+
+				// 10. indexOf(int ch, int fromIndex) :int
+				// 문자와 시작위치를 받아서 해당 문자의 위치값을 표시
+				// 찾는 문자가 없으면 -1이다.
+
+				// 11. indexOf(String str) : int
+				// 문자열를 받아서 해당 문자열의 위치값을 표시
+				// 시작위치는 처음부터, 찾는 문자가 없으면 -1이다.
+
+				// 10. indexOf(String str, int fromIndex) :int
+				// 문자열와 시작위치를 받아서 해당 문자열의 위치값을 표시
+				// 찾는 문자가 없으면 -1이다.
+
+				String msg10 = "BufferedReader";
+				// 'e'를 찾아라
+				int k1 = msg10.indexOf('e'); // 4
+				System.out.println(k1);
+
+				// 두번째 'e'를 찾아라 :
+				// 첫번째 'e'가 4이므로 5부터 찾아야 된다.
+				// k1 = msg10.indexOf('e', 5);
+				k1 = msg10.indexOf('e', msg10.indexOf('e') + 1);
+				System.out.println(k1);
+
+				// 세번째 'e'를 찾아라 :
+				// 두번째 'e'가 6이므로 7부터 찾아야 된다.
+				k1 = msg10.indexOf('e', msg10.indexOf('e', msg10.indexOf('e')+1)+1);
+				System.out.println(k1);
+				
+				// 없는 글자 찾기('A')
+				k1 = msg10.indexOf('A');
+				System.out.println(k1);     //-1
+				
+				b1 = msg10.contains("A");
+				System.out.println(b1);   // false
+				
+				// char말고 String으로 찾기
+				k1 = msg10.indexOf("er");
+				System.out.println(k1); 
+				
+				// 두번째 "er" 찾기 
+				k1 = msg10.indexOf("er",msg10.indexOf("er")+1);
+				System.out.println(k1);
+				
+				// 11. lastIndexOf(int ch) : int
+				//     lastIndexOf(String str) : int
+				//     찾는 마지막 문자나 문자열의 위치를 표시
+				k1 = msg10.lastIndexOf('e');
+				System.out.println(k1);
+				
+				k1 = msg10.lastIndexOf("er");
+				System.out.println(k1);
 		
-		String msg10 = "ButteredReader";
-		int k1 = msg10.indexOf("er");//처음으로 나오는 er 찾기
+	
+		k1 = msg10.indexOf("er");//처음으로 나오는 er 찾기
 		System.out.println(k1);
 		k1 = msg10.indexOf("er",msg10.indexOf("er")+1);//두번째 나오는 er 찾기
 		System.out.println(k1);
