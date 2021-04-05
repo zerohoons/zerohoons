@@ -20,6 +20,38 @@ public class Ex13 {
 	
 	//source 메뉴
 	public Ex13(String name, int age) {
-		
+		this.name = name; 
+		this.age = age;
+	}
+	
+	public Ex13(int age ,String name) {
+		this(name, age, "남극");
+	}
+	public Ex13(String name, int age, String addr) {
+		this.name = name;
+		this.age = age;
+		this.addr = addr;
+		System.out.println("4번째 생성자");
+	}
+	
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public String getAddr() {
+		return addr;
+	}
+	public void setAddr(String addr) {
+		this.addr = addr;
 	}
 }
