@@ -22,7 +22,7 @@ public class Ex01 {
 	
 	//앞에서 만든 모든 처리는 main Thread가 혼자서 다 처리하고 있었는데 이를 싱글Thread라고 한다.
 	
-	//지금 일하는 Thread가 main인걸 확인해보자.
+	//지금 일하는 Thread가 main인걸 확인해보자. : JVM이 main 메소드를 호출하면 main Thread가 무조건 일을한다.
 	
 	public static void main(String[] args) {
 		System.out.println(Thread.currentThread().getName());
