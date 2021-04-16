@@ -1,4 +1,4 @@
-package com.ict07.network;
+package com.ict08.network;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;

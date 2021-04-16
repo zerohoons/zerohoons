@@ -1,11 +1,11 @@
 package com.ict06.Thread;
 
-public class Ex18_Producer implements Runnable {
+public class Ex18_producer implements Runnable {
 	//클래스를 자료형으로 사용. (참조 자료형)
 	private Ex17_Car car;
 	
 	//생성자에서 받은 인자는 무조건 전역변수로 만들자.
-	public Ex18_Producer(Ex17_Car car) {
+	public Ex18_producer(Ex17_Car car) {
 		//전역변수와 지역변수의 이름이 같을 때 전역변수 앞에는 this
 		this.car = car;
 	}

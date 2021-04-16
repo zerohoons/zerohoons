@@ -57,7 +57,7 @@ public class Ex11 {
 				
 			//이동 완료 후, 원본 파일 삭제
 			//파일이 열린상태에서는 삭제할 수 없음.
-			read_file.delete();
+			//read_file.delete();
 			
 			} catch (Exception e2) {
 				System.out.println(e2);

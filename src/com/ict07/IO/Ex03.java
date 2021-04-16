@@ -8,7 +8,7 @@ public class Ex03 {
 		
 	//작업할 특정 위치 지정.
 	String pathname ="F:"+File.separator+"programing"+File.separator+"Study_YH"+File.separator+
-			"util"+File.separator+"01"+File.separator+"io_Test.txt";
+			"util"+File.separator+"io_Test2.txt";
 	
 	File file = new File(pathname);
 	

@@ -12,7 +12,7 @@ public class Ex01 {
 	 *	-join() : 현재 Thread는 join()메소드를 호출한 Thread가 끝날때까지 대기상태로 빠지고
 	 *			  join()을 호출한 Thread가 끝나야 다시 실행된다.
 	 *			  즉, join()을 호출한 Thread가 끝날 때까지 실행할 수 없다.
-	 *	-start(): start()를 실행하면 run()을 호출한다. (만약, start()가 있다면 start()를 우선으로 간다.)
+	 *	-start(): start()를 실행하면 run()을 호출한다. (만약, start()가 있다면 start()를 우선으로 간다. : Thred 처리가 아님)
 	 *	-run()  : start()가 호출하면 run()이 실행된다. 이를 Thread 처리를 했다 라고 한다.
 	 *	-sleep(long millis) : 1000이 1초를 의미하고, 잠시 대기상태로 빠져있는 것을 말함.
 	 *  -yield(): 수행 중인 Thread 중 우선순위가 같은 다른 Thread에게 제어권을 넘긴다.

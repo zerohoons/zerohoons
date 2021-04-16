@@ -6,7 +6,7 @@ public class Ex20_TestMain {
 		
 		Ex17_Car car = new Ex17_Car();
 		
-		Ex18_Producer producer = new Ex18_Producer(car);
+		Ex18_producer producer = new Ex18_producer(car);
 		Ex19_Customer customer = new Ex19_Customer(car);
 		
 		new Thread(producer).start();
